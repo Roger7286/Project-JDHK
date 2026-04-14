@@ -200,7 +200,7 @@ def fetch_all_pages(
             print(f"[API 错误] errorCode={error_code}, message={message}")
             break
 
-        data        = resp.get("data") or {}
+        data        = resp.get("data", {})
         rows        = data.get("rows", [])
         total_count = data.get("totalCount", "?")
         is_last     = data.get("lastPage", True)
@@ -231,11 +231,5 @@ if __name__ == "__main__":
     print("=" * 60)
     print("【fetch_inventory_detail.py 独立测试 — 只查询不落库】")
     print("=" * 60)
-    all_rows = []
-    for org in ["00", "01"]:
-        result = query_inventory_detail(org_number=org, pageNo=1, pageSize=5)
-        rows = (result.get("data") or {}).get("rows", [])
-        print(f"[org_number={org}] 返回 {len(rows)} 条")
-        all_rows.extend(rows)
-    print(f"\n合计 {len(all_rows)} 条")
-    print(json.dumps(all_rows, ensure_ascii=False, indent=2))
+    result = query_inventory_detail(org="3200614", pageNo=1, pageSize=5)
+    print(json.dumps(result, ensure_ascii=False, indent=2))

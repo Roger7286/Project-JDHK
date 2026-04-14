@@ -113,6 +113,57 @@ def _bill_to_pg(row: dict) -> dict:
         "wholediscountamount":          g("wholediscountamount"),
         "supplier_number":              g("supplier_number"),
         "bizoperator_operatorname":     g("bizoperator_operatorname"),
+
+        # 物流跟踪节点（自定义 prod_ 字段）
+        "prod_pendingpickup":           _to_dt(g("prod_pendingpickup")),
+        "prod_pickedup":                _to_dt(g("prod_pickedup")),
+        "prod_dephold":                 _to_dt(g("prod_dephold")),
+        "prod_readyfortakeoff":         _to_dt(g("prod_readyfortakeoff")),
+        "prod_departed":                _to_dt(g("prod_departed")),
+        "prod_cbp":                     _to_dt(g("prod_cbp")),
+        "prod_cbpwithpaid":             _to_dt(g("prod_cbpwithpaid")),
+        "prod_clearancehold":           _to_dt(g("prod_clearancehold")),
+        "prod_clearancecompleted":      _to_dt(g("prod_clearancecompleted")),
+        "prod_returnedtoagent":         _to_dt(g("prod_returnedtoagent")),
+        "prod_outfordelivery":          _to_dt(g("prod_outfordelivery")),
+        "prod_physicalreceived":        _to_dt(g("prod_physicalreceived")),
+        "prod_received":                _to_dt(g("prod_received")),
+
+        # 货物属性（自定义 prod_ 字段）
+        "prod_countryoforigin":         g("prod_countryoforigin"),
+        "prod_countryoforigin_title":   g("prod_countryoforigin_title"),
+        "prod_shippingmethod":          g("prod_shippingmethod"),
+        "prod_shippingmethod_title":    g("prod_shippingmethod_title"),
+        "prod_businessline":            g("prod_businessline"),
+        "prod_businessline_title":      g("prod_businessline_title"),
+
+        # 最终收货仓库（自定义 prod_finalgrwarehouse_ 字段）
+        "prod_finalgrwarehouse_id":               _str(g("prod_finalgrwarehouse_id")),
+        "prod_finalgrwarehouse_masterid":         _str(g("prod_finalgrwarehouse_masterid")),
+        "prod_finalgrwarehouse_number":           g("prod_finalgrwarehouse_number"),
+        "prod_finalgrwarehouse_name":             g("prod_finalgrwarehouse_name"),
+        "prod_finalgrwarehouse_status":           g("prod_finalgrwarehouse_status"),
+        "prod_finalgrwarehouse_status_title":     g("prod_finalgrwarehouse_status_title"),
+        "prod_finalgrwarehouse_enable":           g("prod_finalgrwarehouse_enable"),
+        "prod_finalgrwarehouse_enable_title":     g("prod_finalgrwarehouse_enable_title"),
+        "prod_finalgrwarehouse_bondedwarehouse":  g("prod_finalgrwarehouse_bondedwarehouse"),
+        "prod_finalgrwarehouse_isopenlocation":   g("prod_finalgrwarehouse_isopenlocation"),
+
+        # 货代（自定义 prod_forwarder_ 字段）
+        "prod_forwarder_id":            _str(g("prod_forwarder_id")),
+        "prod_forwarder_masterid":      _str(g("prod_forwarder_masterid")),
+        "prod_forwarder_number":        g("prod_forwarder_number"),
+        "prod_forwarder_name":          g("prod_forwarder_name"),
+        "prod_forwarder_fullname":      g("prod_forwarder_fullname"),
+        "prod_forwarder_longnumber":    g("prod_forwarder_longnumber"),
+
+        # 交易类型（自定义 prod_transactiontype_ 字段）
+        "prod_transactiontype_id":          _str(g("prod_transactiontype_id")),
+        "prod_transactiontype_masterid":    _str(g("prod_transactiontype_masterid")),
+        "prod_transactiontype_number":      g("prod_transactiontype_number"),
+        "prod_transactiontype_name":        g("prod_transactiontype_name"),
+        "prod_transactiontype_fullname":    g("prod_transactiontype_fullname"),
+        "prod_transactiontype_longnumber":  g("prod_transactiontype_longnumber"),
     }
 
 
