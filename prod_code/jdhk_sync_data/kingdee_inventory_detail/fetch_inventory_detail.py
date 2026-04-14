@@ -232,7 +232,7 @@ if __name__ == "__main__":
     print("【fetch_inventory_detail.py 独立测试 — 只查询不落库】")
     print("=" * 60)
     all_rows = []
-    for org in ["3200614", "3059130"]:
+    for org in ["00", "01"]:
         result = query_inventory_detail(org_number=org, pageNo=1, pageSize=5)
         rows = (result.get("data") or {}).get("rows", [])
         print(f"[org_number={org}] 返回 {len(rows)} 条")
